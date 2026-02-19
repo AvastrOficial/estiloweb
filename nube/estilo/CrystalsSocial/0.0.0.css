@@ -2132,58 +2132,83 @@ body.modal-open {
   font-weight: bold;
 }  
               /* Contenedor del menú flotante */
-.floating-menu {
-    position: fixed;
-    bottom: -300px;
-    left: 0px;
-    right: 0px;
-    background-color: #5d5d5d;
-    padding: 20px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-    transition: bottom 0.5s ease-in-out; /* Animación suave */
-    z-index: 1051; /* Asegurarse de que el menú esté encima */
-    display: flex;
-    flex-direction: column; /* Disposición en columna */
-    align-items: center; /* Alinear todo al centro */
-    gap: 20px; /* Espacio entre las filas */
-    padding-top: 50px; /* Espacio adicional en la parte superior para evitar que se superponga */
-}
-
-/* Capa de opacidad (fondo oscuro) */
+/* Menú flotante */
 .olvery {
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.8); /* Opacidad de fondo */
-      z-index: 1051; /* Se asegura que la capa de opacidad esté debajo del menú */
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    z-index: 2000;
+    display: none; /* Oculto por defecto */
+    align-items: flex-end; /* Alinea el contenido abajo */
+    justify-content: center;
+}
+
+.floating-menu {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    background: linear-gradient(135deg, #1a1f35, #0f1425);
+    border-top: 2px solid #6e73dc;
+    border-radius: 30px 30px 0 0;
+    padding: 30px 20px 25px;
+    box-shadow: 0 -5px 30px rgba(110, 115, 220, 0.4);
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
 }
 
 /* Opción derecha superior */
 .menu-option3 {
     position: absolute;
-    top: 5px;
+    top: -15px;
     right: 20px;
-    width: 150px;
-    height: 30px;
-    background-color: rgba(255, 255, 255, 0.3);
-    border-radius: 10px;
+    width: 130px;
+    height: 35px;
+    background: #6e73dc;
+    border-radius: 20px;
     color: #fff;
     font-family: Arial, sans-serif;
     font-size: 14px;
-    text-align: center;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 0 20px rgba(110, 115, 220, 0.5);
     cursor: pointer;
-    gap: 10px;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.menu-option3:hover {
+    transform: translateY(-2px);
+    background: #8a92ff;
+    box-shadow: 0 0 25px rgba(110, 115, 220, 0.8);
+}
+
+.menu-option3 i {
+    color: white;
+    font-size: 16px;
 }
 
 /* Contenedor de opciones (Primera fila) */
 .menu-option-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
-    gap: 10px;
+    gap: 15px;
+    margin: 20px 0;
+    flex-wrap: wrap;
 }
 
 /* Opción cuadrada */
@@ -2192,42 +2217,114 @@ body.modal-open {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 130px;
-    height: 130px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
+    width: 110px;
+    height: 110px;
+    background: rgba(110, 115, 220, 0.15);
+    border: 1px solid rgba(110, 115, 220, 0.3);
+    border-radius: 15px;
     color: #fff;
     font-family: Arial, sans-serif;
     font-size: 14px;
     text-align: center;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 15px rgba(110, 115, 220, 0.2);
     cursor: pointer;
     gap: 10px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
 }
 
-/* Opción rectangular (ancha) - Tienda */
+.menu-option:hover {
+    transform: translateY(-5px);
+    background: rgba(110, 115, 220, 0.3);
+    border-color: #6e73dc;
+    box-shadow: 0 0 25px rgba(110, 115, 220, 0.5);
+}
+
+.menu-option i {
+    color: #6e73dc;
+    font-size: 32px;
+    transition: all 0.3s ease;
+}
+
+.menu-option:hover i {
+    transform: scale(1.1);
+    color: #8a92ff;
+}
+
+/* Opción rectangular (ancha) */
 .menu-option2 {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%; /* Ancho automático */
-    height: 60px;
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
+    width: 100%;
+    height: 55px;
+    background: rgba(110, 115, 220, 0.2);
+    border: 1px solid rgba(110, 115, 220, 0.4);
+    border-radius: 15px;
     color: #fff;
     font-family: Arial, sans-serif;
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: bold;
     text-align: center;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 15px rgba(110, 115, 220, 0.2);
     cursor: pointer;
-    margin-top: 10px;
     gap: 10px;
+    transition: all 0.3s ease;
+    margin-top: 5px;
 }
 
+.menu-option2:hover {
+    background: rgba(110, 115, 220, 0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px rgba(110, 115, 220, 0.5);
+    border-color: #6e73dc;
+}
+
+.menu-option2 i {
+    color: #6e73dc;
+    font-size: 24px;
+    transition: all 0.3s ease;
+}
+
+.menu-option2:hover i {
+    color: #8a92ff;
+}
 
 .icon-large {
-  font-size: 30px; /* Ajusta el tamaño según lo que necesites */
+    font-size: 32px;
+    color: #6e73dc;
 }
+
+.text-large-beautiful {
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(110, 115, 220, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .menu-option {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .menu-option i {
+        font-size: 28px;
+    }
+    
+    .text-large-beautiful {
+        font-size: 12px;
+    }
+    
+    .menu-option3 {
+        width: 110px;
+        font-size: 12px;
+        top: -10px;
+    }
+}
+
+
 
            /* Estilos para el overlay de permisos */
         #permisosOverlay {
