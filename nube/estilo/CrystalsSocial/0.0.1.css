@@ -703,14 +703,43 @@ sform: translateX(0);
 }
       
       
- /* CONTENEDOR MENU */
-.menu-ufc {
+      .menu-lateral {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 60%;
+   background: #020926bf;
+    background-image: radial-gradient(circle at 30% 40%, #1a2a6c 0%, transparent 30%), radial-gradient(circle at 70% 60%, #4a3f8c 0%, transparent 35%), radial-gradient(circle at 90% 20%, #6b5fb0 0%, transparent 25%);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+    transform: translateX(100%);
+    transition: transform 0.4s ease;
+    z-index: 1000;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.menu-lateral.abierto {
+    transform: translateX(0);
+}
+
+.menu-lateral {
+    right: 0;
+    transform: translateX(100%);
+}
+
+.menu-lateral.abierto {
+    transform: translateX(0);
+}
+   .menu-ufc {
     width: 90%;
     max-width: 400px;
-    background-color: transparent; /* quitamos gris sólido */
+    background-color: transparent; /* Gris medio oscuro */
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: none;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6); /* Sombra más pronunciada */
 }
 
 .menu-ufc ul {
@@ -720,10 +749,13 @@ sform: translateX(0);
 }
 
 .menu-ufc li {
-    border-bottom: none; /* quitamos separador viejo */
+    border-bottom: none;/* Gris oscuro */
 }
 
-/* ===== BOTONES NUEVO ESTILO ===== */
+.menu-ufcli:last-child {
+    border-bottom: none;
+}
+
 .menu-ufc a {
     display: flex;
     justify-content: space-between;
@@ -732,27 +764,21 @@ sform: translateX(0);
     color: #ffffff;
     padding: 15px 20px;
     font-size: 1rem;
-
     /* ESTILO VIDRIO */
     background-color: rgba(50, 50, 50, 0.2);
     border: 2px solid rgba(255, 255, 255, 0.4);
     border-radius: 10px;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-
     margin-bottom: 10px;
-
     transition: all 0.3s ease;
 }
 
-/* HOVER */
 .menu-ufc a:hover {
     background-color: rgba(255, 255, 255, 0.15);
     border-color: rgba(255, 255, 255, 0.7);
-    transform: translateX(5px);
+   transform: translateX(5px);
 }
-
-/* EFECTO AL PRESIONAR */
 .menu-ufc a:active {
     transform: scale(0.97);
 }
