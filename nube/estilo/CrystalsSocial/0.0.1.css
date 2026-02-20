@@ -1,4 +1,5 @@
- * {
+
+    * {
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -35,7 +36,6 @@ body {
     font-family: 'Arial', sans-serif;
     box-sizing: border-box;
     padding-top: 50px;
-
     background: #020B2C;
     background-image: radial-gradient(circle at 30% 40%, #1a2a6c 0%, transparent 30%),
                       radial-gradient(circle at 70% 60%, #4a3f8c 0%, transparent 35%),
@@ -300,9 +300,6 @@ body::after {
     }
 }
 
-
-
-
         .square-content {
             position: absolute;
             top: 8px;
@@ -543,35 +540,7 @@ h3 {
   margin-top: 8px;
 }
     
-.menu-lateral {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 60%;
-    background: #222;
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
-    transform: translateX(100%);
-    transition: transform 0.4s ease;
-    z-index: 1000;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-}
 
-.menu-lateral.abierto {
-    transform: translateX(0);
-}
-
-.menu-lateral {
-    right: 0;
-    transform: translateX(100%);
-}
-
-.menu-lateral.abierto {
-    transform: translateX(0);
-}
 sform: translateX(0);
 }
         
@@ -734,14 +703,14 @@ sform: translateX(0);
 }
       
       
-      
-   .menu-ufc {
+ /* CONTENEDOR MENU */
+.menu-ufc {
     width: 90%;
     max-width: 400px;
-    background-color: #3a3a3a; /* Gris medio oscuro */
+    background-color: transparent; /* quitamos gris sólido */
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6); /* Sombra más pronunciada */
+    box-shadow: none;
 }
 
 .menu-ufc ul {
@@ -751,30 +720,42 @@ sform: translateX(0);
 }
 
 .menu-ufc li {
-    border-bottom: 1px solid #5a5a5a; /* Gris oscuro */
+    border-bottom: none; /* quitamos separador viejo */
 }
 
-.menu-ufcli:last-child {
-    border-bottom: none;
-}
-
+/* ===== BOTONES NUEVO ESTILO ===== */
 .menu-ufc a {
     display: flex;
     justify-content: space-between;
     align-items: center;
     text-decoration: none;
-    color: #e0e0e0; /* Gris claro */
+    color: #ffffff;
     padding: 15px 20px;
     font-size: 1rem;
-    transition: background 0.3s, color 0.3s;
-    background-color: #3a3a3a; /* Fondo inicial */
+
+    /* ESTILO VIDRIO */
+    background-color: rgba(50, 50, 50, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    margin-bottom: 10px;
+
+    transition: all 0.3s ease;
 }
 
+/* HOVER */
 .menu-ufc a:hover {
-    background-color: #5a5a5a; /* Gris más claro al pasar el ratón */
-    color: #ffffff; /* Blanco para el texto */
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.7);
+    transform: translateX(5px);
 }
 
+/* EFECTO AL PRESIONAR */
+.menu-ufc a:active {
+    transform: scale(0.97);
+}
 
 
         .bell-container {
